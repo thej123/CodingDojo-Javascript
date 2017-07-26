@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>JQuery Functions</title>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <style>
+        #censored{
+            display: none;
+        }
+        .addColor{
+            background-color: lightgreen;
+        }
+    </style>
+    <script> type="text/javascript">
+        $(document).ready(function(){
+
+            $(".click").click(function(){
+                alert("How dare you click me!!!!!!!");
+            });
+            $(".hide").click(function(){
+                $(".hide").hide();
+            });
+            $(".show").click(function(){
+                $(".hide").show();
+            });
+            $(".toggle").click(function(){
+                $(".click").toggle();
+            });
+            $(".slideDown").click(function(){
+                if ($(".done").is(":hidden")) {
+                    $(".done").slideDown("slow");
+                } else {
+                    $(".done").hide();
+                }
+            });
+            $(".slideUp").click(function(){
+                if ($(".dtwo").is(":hidden")) {
+                    $(".dtwo").show();
+                } else {
+                    $(".dtwo").slideUp("slow");
+                }
+            });
+            $( ".slideToggle" ).click(function() {
+                $( "#pOne" ).slideToggle( "slow" );
+            });
+            $("#fadein").click(function(){
+                $("#censored").fadeIn();
+            });
+            $("#fadeout").click(function(){
+                $("#uncensored").fadeOut();
+            });
+            $("#pOne").addClass("addColor");
+            $(".slideToggle").before("<p>Hello<?p>");
+            $(".slideToggle").after("<p>bye<?p>");
+            $(".slideToggle").append("<p>bye<?p>");
+
+            var title = $("em").attr("title");
+            $("#lucky").text(title);
+
+            var singleValues=$("select").val();
+            $("#lucky").html(singleValues);
+
+            $("#data").click(function(){
+                $( "#dataDiv" ).data( "test", { first: 16, last: "pizza!" } );
+                $( "span:first" ).text( $( "#dataDiv" ).data( "test" ).first );
+                $( "span:last" ).text( $( "#dataDiv" ).data( "test" ).last );
+            });
+        });
+
+
+    </script>
+</head>
+<body>
+    <div class="done">
+        <button class="click"><h1>Alert</h1></button>
+        <button class="toggle"><h1>Toggle Alert</h1></button><br>
+    </div>
+    <div class="dtwo">
+        <button class="hide"><h1>Hide</h1></button>
+        <button class="show"><h1>Show</h1></button>
+    </div>
+    <button class="slideDown"><h1>Sliding down</h1></button>
+    <button class="slideUp"><h1>Sliding up</h1></button>
+    
+    <button class="slideToggle">Toggle</button>
+    <p id="pOne">
+    This is the paragraph to end all paragraphs.  You
+    should feel <em title="huge bro">lucky</em> to have seen such a paragraph in
+    your life.  Congratulations!
+    </p>
+
+    <p id="censored">Censored</p>
+    <button id="fadein">fadein</button>
+    <p id="uncensored">unCensored</p>
+    <button id="fadeout">fadeout</button>
+    <p id="lucky"></p>
+
+    <select>
+        <option>single</option>
+        <option>sad</option>
+    </select>
+    <p id="val"></p>
+
+    <button id="data">DATA</button>
+    <div id="dataDiv">
+        The values stored were
+        <span></span>
+        and
+        <span></span>
+    </div>
+
+</body>
+</html>
