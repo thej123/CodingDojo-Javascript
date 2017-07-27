@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Contact Card</title>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <style>
+        form,
+        table{
+            display: inline-block;
+            vertical-align: top;
+            width: 40%;
+            margin-left: 20px;
+        }
+        tbody{
+            border: 2px solid black;
+            width: 25%;
+        }
+    </style>
+
+    <script>
+        // function moreInfo(){
+        //     $("p").click(function(){
+        //         $("tbody").text();
+        //     });
+        // };
+
+        $(document).ready(function(){
+            // var c = undefined;
+            // $(document).on("submit","form",function(){
+            //     var a = $("#firstname").val()+$("#lastname").val();
+            //     // var b = $("#lastname").val();
+            //     var c = $("#description").val();
+
+            //     $("tbody").append("<div><tr><td>" + a + "</td><br><td>Click for description!</td></tr></div>");
+            //     // $("tbody").append("<tr><td>Click for description!</td></tr>");
+            //     // moreInfo();
+            //     return false;
+            // });
+            // $(document).on("click","div",function(){
+            //     $(this).html("<div><tr><td>" + c + "</td></tr></div>").css("border","2px");
+            // });
+            
+            // var a = undefined;
+            // var b = undefined;
+            $("form").submit(function(){
+                var a = $("#firstname").val()+$("#lastname").val();
+                var b = $("#description").val();
+        
+
+
+                $("tbody").append("<tr><td data-alt-text='" + b + "'>" + a + "<br>Click for Description!</td></tr>");
+                return false;
+            });
+
+            $(document).on("click","td",function(){
+                var temp = $(this).attr("data-alt-text");
+                $(this).attr("data-alt-text",$(this).text());
+                $(this).text(temp);
+                
+                // $(this).html("<tr><td>" + b + "</td></tr>")
+            })
+
+        });
+    </script>
+
+</head>
+<body>
+    <form>
+        First Name: <input type="text" id="firstname"><br>
+        Last Name: <input type="text" id="lastname"><br>
+        Description: <br>
+        <textarea id="description" rows="4" cols="50"></textarea><br>
+        <input type="submit" value="Add User">
+    </form>
+    <table>
+        <thead></thead>
+        <tbody></tbody>
+    </table>
+</body>
+</html>
