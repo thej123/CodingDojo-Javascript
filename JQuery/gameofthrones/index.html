@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <title>Game of Thrones real</title>
+    <script>
+
+        $(document).ready(function(){
+            
+            $("img").click(function(){
+                var address = "https://anapioficeandfire.com/api/houses/" + $(this).attr("id");
+                $.get(address,function(res){
+                    $("#name").html("Name: " + res.name);
+                    $("#words").html("Words: " + res.words);
+                    $("#titles").html("Titles: " + res.titles);
+                }, "json");
+            });
+
+
+            
+        });
+
+    </script>
+    <style>
+        img{
+            width: 20%;
+            height: 100px;
+            display: inline-block;
+            vertical-align: top;
+            margin-left: 10px;
+        }
+
+    </style>
+
+
+</head>
+<body>
+    <div>
+        <img id="362" src="stark.jpg" alt="stark">
+        <img id="378" src="targaryen.jpg" alt="targaryen">
+        <img id="230" src="lannister.jpg" alt="lannister">
+        <img id="17" src="baratheon.png" alt="baratheon">
+    </div>
+    <fieldset>
+        <legend>House Details</legend>
+        <p id="name"></p>
+        <p id="words"></p>
+        <p id="titles"></p>
+  </fieldset>
+</body>
+</html>

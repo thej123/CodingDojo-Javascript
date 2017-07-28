@@ -45,13 +45,30 @@
             
             // var a = undefined;
             // var b = undefined;
-            $("form").submit(function(){
-                var a = $("#firstname").val()+$("#lastname").val();
-                var b = $("#description").val();
+
+            // $("form").submit(function(){
+            //     var a = $("#firstname").val()+$("#lastname").val();
+            //     var b = $("#description").val();
         
 
 
-                $("tbody").append("<tr><td data-alt-text='" + b + "'>" + a + "<br>Click for Description!</td></tr>");
+            //     $("tbody").append("<tr><td data-alt-text='" + b + "'>" + a + "<br>Click for Description!</td></tr>");
+            //     return false;
+            // });
+
+            // $(document).on("click","td",function(){
+            //     var temp = $(this).attr("data-alt-text");
+            //     $(this).attr("data-alt-text",$(this).text());
+            //     $(this).text(temp);
+                
+            // });
+
+            $("form").submit(function(){
+                var a = $("#firstname").val() + " " + $("#lastname").val();
+                // var b = $("#lastname").val();
+                var c = $("#description").val();
+
+                $("tbody").append("<tr><td data-alt-text='" + c + "'>" + a + "<br><br>Click for description!</td></tr>");
                 return false;
             });
 
@@ -59,9 +76,12 @@
                 var temp = $(this).attr("data-alt-text");
                 $(this).attr("data-alt-text",$(this).text());
                 $(this).text(temp);
-                
-                // $(this).html("<tr><td>" + b + "</td></tr>")
-            })
+            });
+
+
+
+
+
 
         });
     </script>

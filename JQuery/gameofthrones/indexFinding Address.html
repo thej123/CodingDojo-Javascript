@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <title>Game of Thrones</title>
+    <script>
+
+        $(document).ready(function(){
+
+            for (var i = 1; i < 445; i++) {
+                var address = "https://anapioficeandfire.com/api/houses/" + i + "/";
+                $.get(address,function(res){
+                    if (res.name == "House Targaryen of King's Landing"){
+                        Web_address = res.url;
+                        $("body").append("<p>" + Web_address + "</p>");
+                    };
+                });
+                
+                
+            };
+
+            
+        });
+
+    </script>
+    <style>
+
+    </style>
+
+
+</head>
+<body>
+
+    <div></div>
+</body>
+</html>
