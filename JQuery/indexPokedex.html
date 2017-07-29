@@ -11,18 +11,18 @@
         $(document).ready(function(){
 
             for (var i = 1; i < 152; i++){
-                $("#pokemon").append("<img src-info='http://pokeapi.co/api/v1/pokemon/" + i + "/' id='" + i + "' src='http://pokeapi.co/media/img/" + i + ".png'>")    
+                $("#pokemon").append("<img src-hello='http://pokeapi.co/api/v1/pokemon/" + i + "/' id='" + i + "' src='http://pokeapi.co/media/img/" + i + ".png'>")    
             };
 
             $("img").click(function(){
-                var infoAddress = $(this).attr("src-info");
+                var infoAddress = $(this).attr("src-hello");
                 var imgAddress = $(this).attr("src");
-                $.get(infoAddress,function(res){
-                    for(var x = 0; x < res.types.length; x++){
-                        var header = "<h1>" + res.name + "</h1><img src='" + imgAddress + "'>";
-                        header += "<p>Types: " + res.types[x].name + "</p>";
+                $.get(infoAddress,function(val){
+                    var header = "<h1>" + val.name + "</h1><img src='" + imgAddress + "'>";
+                    for(var x = 0; x < val.types.length; x++){
+                        header += "<li>Types: " + val.types[x].name + "</li>";
                     }                
-                    header += "<p>Height: " + res.height + "</p><p>Weight: " + res.weight + "</p>";
+                    header += "<p>Height: " + val.height + "</p><p>Weight: " + val.weight + "</p>";
                 $("#pokedex").html(header);
             }, "json");
             });

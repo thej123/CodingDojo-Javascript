@@ -18,6 +18,9 @@
             border: 2px solid black;
             width: 25%;
         }
+        #desc{
+            display: none;
+        }
     </style>
 
     <script>
@@ -28,31 +31,13 @@
         // };
 
         $(document).ready(function(){
-            // var c = undefined;
-            // $(document).on("submit","form",function(){
-            //     var a = $("#firstname").val()+$("#lastname").val();
+
+            // $("form").submit(function(){
+            //     var a = $("#firstname").val() + " " + $("#lastname").val();
             //     // var b = $("#lastname").val();
             //     var c = $("#description").val();
 
-            //     $("tbody").append("<div><tr><td>" + a + "</td><br><td>Click for description!</td></tr></div>");
-            //     // $("tbody").append("<tr><td>Click for description!</td></tr>");
-            //     // moreInfo();
-            //     return false;
-            // });
-            // $(document).on("click","div",function(){
-            //     $(this).html("<div><tr><td>" + c + "</td></tr></div>").css("border","2px");
-            // });
-            
-            // var a = undefined;
-            // var b = undefined;
-
-            // $("form").submit(function(){
-            //     var a = $("#firstname").val()+$("#lastname").val();
-            //     var b = $("#description").val();
-        
-
-
-            //     $("tbody").append("<tr><td data-alt-text='" + b + "'>" + a + "<br>Click for Description!</td></tr>");
+            //     $("tbody").append("<tr><td data-alt-text='" + c + "'><p>" + a + "</p><br><br>Click for description!</td></tr>");
             //     return false;
             // });
 
@@ -60,24 +45,19 @@
             //     var temp = $(this).attr("data-alt-text");
             //     $(this).attr("data-alt-text",$(this).text());
             //     $(this).text(temp);
-                
             // });
 
             $("form").submit(function(){
-                var a = $("#firstname").val() + " " + $("#lastname").val();
-                // var b = $("#lastname").val();
-                var c = $("#description").val();
+                var a = "<tr><td><span id='name'>" + $ ("#firstname").val() + " " + $("#lastname").val() + "</span><span id='desc'>" + $("#description").val() + "</span></td></tr>";
+                // var c = $("#description").val();
 
-                $("tbody").append("<tr><td data-alt-text='" + c + "'>" + a + "<br><br>Click for description!</td></tr>");
+                $("tbody").append(a);
                 return false;
             });
 
             $(document).on("click","td",function(){
-                var temp = $(this).attr("data-alt-text");
-                $(this).attr("data-alt-text",$(this).text());
-                $(this).text(temp);
+                $("td").children().toggle();
             });
-
 
 
 
